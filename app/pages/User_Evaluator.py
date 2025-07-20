@@ -73,8 +73,11 @@ st.markdown("""
             font-size: 0.96rem;
         }
     </style>
-    <a href="/Home" class="back-btn">⬅️ Back to Home</a>
 """, unsafe_allow_html=True)
+
+# --- Back Button ---
+if st.button("⬅️ Back to Home", key="back_btn"):
+    st.switch_page("Home")
 
 # --- Header ---
 st.markdown("<h2 style='text-align: center; color:#4A3AFF;'>🎯 Resume Evaluator - Job Seeker Panel</h2>", unsafe_allow_html=True)
