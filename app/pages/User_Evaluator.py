@@ -23,6 +23,8 @@ st.markdown("""
             cursor: pointer;
             transition: 0.3s;
             margin-bottom: 20px;
+            text-decoration: none;
+            display: inline-block;
         }
         .back-btn:hover {
             background-color: #4A3AFF;
@@ -77,7 +79,7 @@ st.markdown("""
 # --- Back Button ---
 st.markdown("""
     <a href="/" target="_self">
-        <button class="back-btn">⬅️ Back to Home</button>
+        <div class="back-btn">⬅️ Back to Home</div>
     </a>
 """, unsafe_allow_html=True)
 
