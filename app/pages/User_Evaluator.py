@@ -23,7 +23,6 @@ st.markdown("""
             cursor: pointer;
             transition: 0.3s;
             margin-bottom: 20px;
-            text-decoration: none;
         }
         .back-btn:hover {
             background-color: #4A3AFF;
@@ -76,10 +75,11 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Back Button ---
-if st.button("⬅️ Back to Home", key="back_btn"):
-    st.query_params.clear()
-    st.experimental_set_query_params(page="Home")
-    st.experimental_rerun()
+st.markdown("""
+    <a href="/" target="_self">
+        <button class="back-btn">⬅️ Back to Home</button>
+    </a>
+""", unsafe_allow_html=True)
 
 # --- Header ---
 st.markdown("<h2 style='text-align: center; color:#4A3AFF;'>🎯 Resume Evaluator - Job Seeker Panel</h2>", unsafe_allow_html=True)
@@ -120,9 +120,11 @@ if evaluate_clicked:
                 </div>
             """, unsafe_allow_html=True)
 
+            # LLM Suggestion
             suggestion = get_resume_feedback(resume_text, jd_text)
             st.markdown(f"<div class='suggest-box'>{suggestion}</div>", unsafe_allow_html=True)
 
+            # ATS Score
             def get_ats_score(text):
                 score = 100
                 if len(text) < 500: score -= 20
@@ -139,6 +141,7 @@ if evaluate_clicked:
                 </div>
             """, unsafe_allow_html=True)
 
+            # Skill Match
             def extract_skills(text):
                 import re
                 common_skills = ["python", "sql", "excel", "machine learning", "deep learning",
