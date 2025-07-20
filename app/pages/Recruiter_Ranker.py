@@ -73,13 +73,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --------------------- Back Button ---------------------
-
-st.markdown("""
-    <a href="/" target="_self">
-        <div class="back-btn">⬅️ Back to Home</div>
-    </a>
-""", unsafe_allow_html=True)
-
+if st.button("⬅️ Back to Home", key="back_btn"):
+    st.experimental_set_query_params()  # Clears any URL parameters
+    st.experimental_rerun()             # Forces rerun to homepage
 
 st.markdown("<h2 style='text-align: center; color:#4A3AFF;'>📘 Recruiter Panel - Resume Ranker</h2>", unsafe_allow_html=True)
 
