@@ -26,6 +26,8 @@ st.markdown("""
             cursor: pointer;
             transition: 0.3s;
             margin-bottom: 20px;
+            text-decoration: none;
+            display: inline-block;
         }
         .back-btn:hover {
             background-color: #4A3AFF;
@@ -70,12 +72,8 @@ st.markdown("""
             margin-bottom: 20px;
         }
     </style>
+    <a href="/Home" class="back-btn">⬅️ Back to Home</a>
 """, unsafe_allow_html=True)
-
-# --------------------- Back Button ---------------------
-if st.button("⬅️ Back to Home", key="back_btn"):
-    st.query_params.clear()
-    st.rerun()
 
 st.markdown("<h2 style='text-align: center; color:#4A3AFF;'>📘 Recruiter Panel - Resume Ranker</h2>", unsafe_allow_html=True)
 

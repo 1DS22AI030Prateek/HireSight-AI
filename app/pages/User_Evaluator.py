@@ -23,6 +23,7 @@ st.markdown("""
             cursor: pointer;
             transition: 0.3s;
             margin-bottom: 20px;
+            text-decoration: none;
         }
         .back-btn:hover {
             background-color: #4A3AFF;
@@ -72,13 +73,8 @@ st.markdown("""
             font-size: 0.96rem;
         }
     </style>
+    <a href="/Home" class="back-btn">⬅️ Back to Home</a>
 """, unsafe_allow_html=True)
-
-# --- Back Button ---
-if st.button("⬅️ Back to Home", key="back_btn"):
-    st.query_params.clear()
-    st.rerun()
-
 
 # --- Header ---
 st.markdown("<h2 style='text-align: center; color:#4A3AFF;'>🎯 Resume Evaluator - Job Seeker Panel</h2>", unsafe_allow_html=True)
@@ -104,9 +100,9 @@ evaluate_clicked = st.button("✨ Evaluate Match")
 # --- Evaluation Logic ---
 if evaluate_clicked:
     if resume_file and jd_text.strip():
-        resume_path = os.path.join(tempfile.gettempdir(), resume_file.name)
-        with open(resume_path, "wb") as f:
-            f.write(resume_file.read())
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_resume:
+            temp_resume.write(resume_file.read())
+            resume_path = temp_resume.name
 
         try:
             resume_text = extract_text_from_pdf(resume_path)
@@ -171,9 +167,6 @@ if evaluate_clicked:
 
         except Exception as e:
             st.error(f"⚠️ Error: {str(e)}")
-
-        # Safe cleanup
-        if os.path.exists(resume_path):
-            os.remove(resume_path)
+        os.remove(resume_path)
     else:
         st.warning("⚠️ Please upload both resume and job description before evaluating.")
