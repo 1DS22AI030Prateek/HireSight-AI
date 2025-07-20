@@ -75,9 +75,26 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Custom Button with Working Navigation ---
+import streamlit as st
+
+# Show your styled button using HTML (CSS remains untouched)
 st.markdown("""
-    <button class="back-btn" onclick="window.location.href='/';">⬅️ Back to Home</button>
+    <button class="back-btn" onclick="window.location.reload();">⬅️ Back to Home</button>
 """, unsafe_allow_html=True)
+
+# Actual navigation logic using Streamlit's page system
+if st.button("go_home_internal", key="back_home_internal", help="internal nav"):
+    st.switch_page("0_Home.py")
+
+st.markdown("""
+    <script>
+        const htmlBtn = document.querySelector('.back-btn');
+        htmlBtn.addEventListener('click', () => {
+            document.querySelector('button[title="internal nav"]').click();
+        });
+    </script>
+""", unsafe_allow_html=True)
+
 
 
 # --- Header ---
