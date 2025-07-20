@@ -76,7 +76,9 @@ st.markdown("""
 
 # --------------------- Back Button ---------------------
 if st.button("⬅️ Back to Home", key="back_btn"):
-    st.switch_page("Home")  # Correct way in newer Streamlit
+    st.query_params.clear()
+    st.experimental_set_query_params(page="Home")
+    st.experimental_rerun()
 
 st.markdown("<h2 style='text-align: center; color:#4A3AFF;'>📘 Recruiter Panel - Resume Ranker</h2>", unsafe_allow_html=True)
 
