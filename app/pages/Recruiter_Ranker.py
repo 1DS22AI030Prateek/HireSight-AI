@@ -73,9 +73,13 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --------------------- Back Button ---------------------
+
 st.markdown("""
-    <a href="/" target="_self"><button class="back-btn">⬅️ Back to Home</button></a>
+    <a href="/" target="_self">
+        <div class="back-btn">⬅️ Back to Home</div>
+    </a>
 """, unsafe_allow_html=True)
+
 
 st.markdown("<h2 style='text-align: center; color:#4A3AFF;'>📘 Recruiter Panel - Resume Ranker</h2>", unsafe_allow_html=True)
 
