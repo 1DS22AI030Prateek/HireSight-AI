@@ -72,10 +72,13 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --------------------- Back Button ---------------------
-st.markdown("""
-    <a href="/" target="_self"><button class="back-btn">⬅️ Back to Home</button></a>
-""", unsafe_allow_html=True)
+# --- Custom Button with Working Navigation ---
+if st.markdown("""
+    <a href="?page=Home" target="_self">
+        <button class="back-btn">⬅️ Back to Home</button>
+    </a>
+""", unsafe_allow_html=True):
+    pass  # No action needed; anchor handles navigation
 
 st.markdown("<h2 style='text-align: center; color:#4A3AFF;'>📘 Recruiter Panel - Resume Ranker</h2>", unsafe_allow_html=True)
 
