@@ -75,11 +75,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Fixed Back Button ---
-st.markdown("""
-    <a href="/" target="_self">
-        <button class="back-btn">⬅️ Back to Home</button>
-    </a>
-""", unsafe_allow_html=True)
+st.page_link("0_Home.py", label="⬅️ Back to Home", icon="🏠")
+
 
 
 # --- Header ---
