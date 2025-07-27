@@ -75,7 +75,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Fixed Back Button ---
-st.page_link("0_Home.py", label="⬅️ Back to Home", icon="🏠")
+st.markdown('<div class="back-btn-container">', unsafe_allow_html=True)
+if st.button("⬅️ Back to Home", key="back_home_btn"):
+    st.switch_page("0_Home.py")
+st.markdown('</div>', unsafe_allow_html=True)
 
 
 
