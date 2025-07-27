@@ -78,20 +78,6 @@ if st.button("⬅️ Back to Home", key="back_home_btn"):
     st.switch_page("0_Home.py")
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Actual navigation logic using Streamlit's page system
-if st.button("go_home_internal", key="back_home_internal", help="internal nav"):
-    st.switch_page("0_Home.py")
-
-st.markdown("""
-    <script>
-        const htmlBtn = document.querySelector('.back-btn');
-        htmlBtn.addEventListener('click', () => {
-            document.querySelector('button[title="internal nav"]').click();
-        });
-    </script>
-""", unsafe_allow_html=True)
-
-
 # --- Header ---
 
 st.markdown("<h2 style='text-align: center; color:#4A3AFF;'>📘 Recruiter Panel - Resume Ranker</h2>", unsafe_allow_html=True)
